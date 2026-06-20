@@ -5,6 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Simulador de Embalagem Personalizada | Natucopos</title>
   <meta name="description" content="Crie uma prévia visual da sua embalagem personalizada de papel para açaí, sorvete, café, delivery e sobremesas com a Natucopos." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="topo">
+    <nav class="nav">
+      <img class="logo" id="brandLogo" src="/logo.png" alt="Natucopos" />
+      <a class="nav-link" href="#como-funciona">Como funciona</a>
+    </nav>
+    <div class="hero-grid">
+      <section class="hero-copy">
+        <p class="eyebrow">Natucopos • embalagens personalizadas</p>
+        <h1>Simule o visual da sua embalagem personalizada antes de produzir</h1>
+        <p class="subtitle">Responda algumas perguntas, envie sua logo e receba uma direção visual criada para copos, potes e bowls personalizados.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#simulador" id="startSimulation">Criar minha simulação</a>
+          <a class="btn secondary" href="#como-funciona">Ver como funciona</a>
+        </div>
+        <div class="badges" aria-label="Benefícios">
+          <span>Prévia visual</span><span>Briefing automático</span><span>Ideal para açaí, sorvete, café e delivery</span><span>Atendimento humano antes da produção</span>
+        </div>
+      </section>
+      <aside class="hero-visual" aria-hidden="true">
+        <div class="cup cup-one">750 ml</div>
+        <div class="cup cup-two">NATU</div>
+        <div class="glow"></div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="como-funciona">
+      <p class="eyebrow dark">Fluxo rápido</p>
+      <h2>Como funciona</h2>
+      <div class="cards three">
+        <article><b>1</b><h3>Envie os dados da sua marca</h3><p>Informe contato, empresa, Instagram e o produto que vai na embalagem.</p></article>
+        <article><b>2</b><h3>Escolha embalagem, estilo e cores</h3><p>Selecione pote, copo, bowl, tamanho e a direção visual desejada.</p></article>
+        <article><b>3</b><h3>Receba uma prévia e envie para atendimento</h3><p>Revise o briefing, copie o prompt técnico e encaminhe tudo pelo WhatsApp.</p></article>
+      </div>
+      <p class="notice">A simulação é uma referência inicial. A arte final sempre passa por conferência humana antes da produção.</p>
+    </section>
+
+    <section class="simulator" id="simulador">
+      <div class="sim-head">
+        <div><p class="eyebrow dark">Simulador visual</p><h2>Briefing de embalagem personalizada</h2></div>
+        <button class="link-button" id="clearSimulation" type="button">Limpar simulação</button>
+      </div>
+      <div class="progress-wrap"><div class="progress-label"><span id="stepLabel">Etapa 1 de 6</span><span id="progressPercent">17%</span></div><div class="progress"><div id="progressBar"></div></div></div>
+      <form id="simulationForm" novalidate>
+        <div class="step active" data-step="1">
+          <h3>Dados do cliente</h3>
+          <div class="grid two"><label>Nome*<input name="customer_name" required /></label><label>WhatsApp*<input name="whatsapp" required inputmode="tel" /></label><label>Empresa/marca*<input name="company_name" required /></label><label>Cidade/estado<input name="city_state" /></label><label>Instagram<input name="instagram" placeholder="@suaempresa" /></label></div>
+        </div>
+        <div class="step" data-step="2">
+          <h3>Segmento</h3><div class="option-grid" data-name="segment"></div><label>O que vai dentro da embalagem?<textarea name="product_description" placeholder="Ex: açaí de 750ml, sorvete de 500ml, café gelado, sobremesa no pote..."></textarea></label>
+        </div>
+        <div class="step" data-step="3">
+          <h3>Embalagem</h3><div class="option-grid" data-name="package_type"></div><h4>Tamanho</h4><div class="chips" data-name="package_size"></div><p class="hint">Nesta primeira versão, o pote 750 ml é o exemplo principal da prévia visual.</p>
+        </div>
+        <div class="step" data-step="4">
+          <h3>Estilo visual</h3><div class="option-grid" data-name="visual_style"></div><div class="grid three-cols"><label>Cor principal<input name="primary_color" type="color" value="#0f7a3b" /></label><label>Cor secundária<input name="secondary_color" type="color" value="#f3c96b" /></label><label>Cor de apoio<input name="support_color" type="color" value="#ffffff" /></label></div><label>Referências visuais ou observações<textarea name="observations"></textarea></label>
+        </div>
+        <div class="step" data-step="5">
+          <h3>Logo e textos</h3><label>Upload da logo da marca<input name="logo_file" type="file" accept=".png,.jpg,.jpeg,.svg,.pdf" /></label><label class="checkbox"><input name="no_logo" type="checkbox" /> Ainda não tenho logo</label><div class="grid two"><label>Frase principal<input name="main_phrase" placeholder="Ex: O melhor açaí da cidade" /></label><label>Frase secundária<input name="secondary_phrase" /></label><label>Instagram na embalagem<input name="package_instagram" /></label><label>WhatsApp ou telefone na embalagem<input name="package_phone" /></label><label>Deseja QR Code?<select name="wants_qr_code"><option value="Não">Não</option><option value="Sim">Sim</option></select></label><label class="qr-field">Link do QR Code<input name="qr_code_url" type="url" /></label></div>
+        </div>
+        <div class="step result" data-step="6"><h3>Resultado do briefing</h3><div class="result-grid"><div><div id="summary" class="summary"></div><h4>Prompt técnico para IA</h4><div class="copy-box"><pre id="generatedPrompt"></pre><button type="button" id="copyPrompt">Copiar prompt</button></div></div><aside class="preview-card"><h4>Prévia placeholder</h4><div class="preview" id="preview"><img id="mockupImage" src="/mockups/pote-750ml-branco.png" alt="Pote branco 750 ml" /><div class="css-pot" id="cssPot"></div><div class="preview-art"><strong id="previewBrand">Sua marca</strong><span id="previewPhrase">Prévia visual</span></div></div><button class="btn disabled" type="button" disabled>Gerar prévia com IA <small>Em breve</small></button><a class="btn primary full" id="whatsappButton" target="_blank" rel="noopener">Enviar briefing pelo WhatsApp</a></aside></div></div>
+        <div class="form-actions"><button class="btn secondary" type="button" id="prevBtn">Voltar</button><button class="btn primary" type="button" id="nextBtn">Continuar</button></div>
+      </form>
+    </section>
+  </main>
   <meta name="theme-color" content="#06130b" />
   <link rel="preload" href="/logo.png" as="image" />
   <link rel="stylesheet" href="style.css" />
