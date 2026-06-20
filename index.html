@@ -3,270 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simulador de Embalagem Personalizada | Natucopos</title>
-  <meta name="description" content="Crie uma prévia visual da sua embalagem personalizada de papel para açaí, sorvete, café, delivery e sobremesas com a Natucopos." />
+  <meta name="theme-color" content="#06130b" />
+  <title>Simulador V2 de Embalagem Personalizada | Natucopos</title>
+  <meta name="description" content="Crie briefing, prompts técnicos e três direções visuais para embalagens personalizadas Natucopos." />
+  <link rel="preload" href="/logo.png" as="image" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero" id="topo">
-    <nav class="nav">
-      <img class="logo" id="brandLogo" src="/logo.png" alt="Natucopos" />
-      <a class="nav-link" href="#como-funciona">Como funciona</a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#topo" aria-label="Natucopos"><img id="brandLogo" src="/logo.png" alt="Natucopos" /><span>Natucopos</span></a>
+      <div class="nav-links"><a href="#como-funciona">Como funciona</a><a href="#simulador">Simulador</a></div>
+      <a class="btn nav-cta" href="#simulador">Começar</a>
     </nav>
     <div class="hero-grid">
       <section class="hero-copy">
-        <p class="eyebrow">Natucopos • embalagens personalizadas</p>
-        <h1>Simule o visual da sua embalagem personalizada antes de produzir</h1>
-        <p class="subtitle">Responda algumas perguntas, envie sua logo e receba uma direção visual criada para copos, potes e bowls personalizados.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#simulador" id="startSimulation">Criar minha simulação</a>
-          <a class="btn secondary" href="#como-funciona">Ver como funciona</a>
-        </div>
-        <div class="badges" aria-label="Benefícios">
-          <span>Prévia visual</span><span>Briefing automático</span><span>Ideal para açaí, sorvete, café e delivery</span><span>Atendimento humano antes da produção</span>
-        </div>
+        <p class="eyebrow">Natucopos • simulador V2</p>
+        <h1>Simule 3 caminhos visuais antes de produzir sua embalagem.</h1>
+        <p class="subtitle">Preencha o briefing, gere uma opção Premium, Colorida e Clean, escolha uma direção e envie tudo para atendimento humano.</p>
+        <div class="hero-actions"><a class="btn primary" href="#simulador" id="startSimulation">Criar minha simulação</a><a class="btn secondary dark" href="#como-funciona">Ver como funciona</a></div>
+        <div class="badges"><span>3 direções visuais</span><span>Prompts copiáveis</span><span>WhatsApp pronto</span><span>Conferência humana</span></div>
       </section>
-      <aside class="hero-visual" aria-hidden="true">
-        <div class="cup cup-one">750 ml</div>
-        <div class="cup cup-two">NATU</div>
-        <div class="glow"></div>
-      </aside>
+      <aside class="hero-visual" aria-label="Prévia ilustrativa"><div class="floating-pot premium"><strong>NATU</strong><small>750 ml</small></div><div class="floating-pot color"><strong>AÇAÍ</strong><small>color</small></div><div class="glow"></div></aside>
     </div>
   </header>
 
   <main>
     <section class="section" id="como-funciona">
-      <p class="eyebrow dark">Fluxo rápido</p>
-      <h2>Como funciona</h2>
+      <p class="eyebrow dark-text">Fluxo premium</p>
+      <h2>Do briefing à direção visual escolhida.</h2>
       <div class="cards three">
-        <article><b>1</b><h3>Envie os dados da sua marca</h3><p>Informe contato, empresa, Instagram e o produto que vai na embalagem.</p></article>
-        <article><b>2</b><h3>Escolha embalagem, estilo e cores</h3><p>Selecione pote, copo, bowl, tamanho e a direção visual desejada.</p></article>
-        <article><b>3</b><h3>Receba uma prévia e envie para atendimento</h3><p>Revise o briefing, copie o prompt técnico e encaminhe tudo pelo WhatsApp.</p></article>
+        <article><b>1</b><h3>Briefing completo</h3><p>Dados do cliente, embalagem, tamanho, estilo, cores, textos e logo.</p></article>
+        <article><b>2</b><h3>Três simulações</h3><p>Premium, Colorida e Clean com mockups CSS e prompts específicos.</p></article>
+        <article><b>3</b><h3>Atendimento final</h3><p>A direção escolhida, ajuste solicitado e prompt seguem pelo WhatsApp.</p></article>
       </div>
-      <p class="notice">A simulação é uma referência inicial. A arte final sempre passa por conferência humana antes da produção.</p>
+      <p class="notice">A simulação é uma referência inicial. A arte final passa por conferência humana antes da produção.</p>
     </section>
 
     <section class="simulator" id="simulador">
-      <div class="sim-head">
-        <div><p class="eyebrow dark">Simulador visual</p><h2>Briefing de embalagem personalizada</h2></div>
-        <button class="link-button" id="clearSimulation" type="button">Limpar simulação</button>
-      </div>
+      <div class="sim-head"><div><p class="eyebrow dark-text">Simulador visual</p><h2>Briefing de embalagem personalizada</h2></div><button class="link-button" id="clearSimulation" type="button">Limpar simulação</button></div>
       <div class="progress-wrap"><div class="progress-label"><span id="stepLabel">Etapa 1 de 6</span><span id="progressPercent">17%</span></div><div class="progress"><div id="progressBar"></div></div></div>
       <form id="simulationForm" novalidate>
-        <div class="step active" data-step="1">
-          <h3>Dados do cliente</h3>
-          <div class="grid two"><label>Nome*<input name="customer_name" required /></label><label>WhatsApp*<input name="whatsapp" required inputmode="tel" /></label><label>Empresa/marca*<input name="company_name" required /></label><label>Cidade/estado<input name="city_state" /></label><label>Instagram<input name="instagram" placeholder="@suaempresa" /></label></div>
-        </div>
-        <div class="step" data-step="2">
-          <h3>Segmento</h3><div class="option-grid" data-name="segment"></div><label>O que vai dentro da embalagem?<textarea name="product_description" placeholder="Ex: açaí de 750ml, sorvete de 500ml, café gelado, sobremesa no pote..."></textarea></label>
-        </div>
-        <div class="step" data-step="3">
-          <h3>Embalagem</h3><div class="option-grid" data-name="package_type"></div><h4>Tamanho</h4><div class="chips" data-name="package_size"></div><p class="hint">Nesta primeira versão, o pote 750 ml é o exemplo principal da prévia visual.</p>
-        </div>
-        <div class="step" data-step="4">
-          <h3>Estilo visual</h3><div class="option-grid" data-name="visual_style"></div><div class="grid three-cols"><label>Cor principal<input name="primary_color" type="color" value="#0f7a3b" /></label><label>Cor secundária<input name="secondary_color" type="color" value="#f3c96b" /></label><label>Cor de apoio<input name="support_color" type="color" value="#ffffff" /></label></div><label>Referências visuais ou observações<textarea name="observations"></textarea></label>
-        </div>
-        <div class="step" data-step="5">
-          <h3>Logo e textos</h3><label>Upload da logo da marca<input name="logo_file" type="file" accept=".png,.jpg,.jpeg,.svg,.pdf" /></label><label class="checkbox"><input name="no_logo" type="checkbox" /> Ainda não tenho logo</label><div class="grid two"><label>Frase principal<input name="main_phrase" placeholder="Ex: O melhor açaí da cidade" /></label><label>Frase secundária<input name="secondary_phrase" /></label><label>Instagram na embalagem<input name="package_instagram" /></label><label>WhatsApp ou telefone na embalagem<input name="package_phone" /></label><label>Deseja QR Code?<select name="wants_qr_code"><option value="Não">Não</option><option value="Sim">Sim</option></select></label><label class="qr-field">Link do QR Code<input name="qr_code_url" type="url" /></label></div>
-        </div>
-        <div class="step result" data-step="6"><h3>Resultado do briefing</h3><div class="result-grid"><div><div id="summary" class="summary"></div><h4>Prompt técnico para IA</h4><div class="copy-box"><pre id="generatedPrompt"></pre><button type="button" id="copyPrompt">Copiar prompt</button></div></div><aside class="preview-card"><h4>Prévia placeholder</h4><div class="preview" id="preview"><img id="mockupImage" src="/mockups/pote-750ml-branco.png" alt="Pote branco 750 ml" /><div class="css-pot" id="cssPot"></div><div class="preview-art"><strong id="previewBrand">Sua marca</strong><span id="previewPhrase">Prévia visual</span></div></div><button class="btn disabled" type="button" disabled>Gerar prévia com IA <small>Em breve</small></button><a class="btn primary full" id="whatsappButton" target="_blank" rel="noopener">Enviar briefing pelo WhatsApp</a></aside></div></div>
+        <section class="step active" data-step="1"><h3>Dados do cliente</h3><div class="grid two"><label>Nome*<input name="customer_name" required autocomplete="name" /></label><label>WhatsApp*<input name="whatsapp" required inputmode="tel" /></label><label>Empresa/marca*<input name="company_name" required /></label><label>Cidade/estado<input name="city_state" /></label><label class="full-field">Instagram<input name="instagram" placeholder="@suaempresa" /></label></div></section>
+        <section class="step" data-step="2"><h3>Segmento</h3><div class="option-grid" data-name="segment"></div><label>O que vai dentro da embalagem?<textarea name="product_description" placeholder="Ex: açaí de 750ml, sorvete de 500ml, café gelado..."></textarea></label></section>
+        <section class="step" data-step="3"><h3>Embalagem</h3><div class="option-grid" data-name="package_type"></div><h4>Tamanho</h4><div class="chips" data-name="package_size"></div></section>
+        <section class="step" data-step="4"><h3>Estilo visual</h3><div class="option-grid" data-name="visual_style"></div><div class="grid three-cols"><label>Cor principal<input name="primary_color" type="color" value="#0f7a3b" /></label><label>Cor secundária<input name="secondary_color" type="color" value="#f3c96b" /></label><label>Cor de apoio<input name="support_color" type="color" value="#ffffff" /></label></div><label>Referências visuais ou observações<textarea name="observations"></textarea></label></section>
+        <section class="step" data-step="5"><h3>Logo e textos</h3><label>Upload da logo da marca<input name="logo_file" type="file" accept=".png,.jpg,.jpeg,.svg,.pdf" /></label><label class="checkbox"><input name="no_logo" type="checkbox" /> Ainda não tenho logo</label><div class="grid two"><label>Frase principal<input name="main_phrase" placeholder="Ex: O melhor açaí da cidade" /></label><label>Frase secundária<input name="secondary_phrase" /></label><label>Instagram na embalagem<input name="package_instagram" /></label><label>WhatsApp ou telefone na embalagem<input name="package_phone" /></label><label>Deseja QR Code?<select name="wants_qr_code"><option value="Não">Não</option><option value="Sim">Sim</option></select></label><label>Link do QR Code<input name="qr_code_url" type="url" /></label></div></section>
+        <section class="step result" data-step="6"><h3>Resultado e simulação visual</h3><div class="final-grid"><div class="panel"><h4>Resumo do briefing</h4><div id="summary" class="summary"></div><h4>Prompt técnico copiável</h4><div class="copy-box"><pre id="generatedPrompt"></pre><button type="button" id="copyPrompt">Copiar prompt técnico</button></div><p class="notice compact">A simulação é uma referência inicial. A arte final passa por conferência humana antes da produção.</p><button class="btn primary full" type="button" id="generateOptions">Gerar opções de simulação</button></div><aside class="preview-card"><h4>Área de prévia visual</h4><div id="mainPreview" class="visual-mockup premium-style"></div></aside></div><div id="simulationOptions" class="simulation-options" hidden></div><div id="chosenDirection" class="chosen-direction" hidden></div><button class="btn primary full whatsapp-final" id="sendSimulation" type="button" disabled>Enviar simulação para atendimento</button></section>
         <div class="form-actions"><button class="btn secondary" type="button" id="prevBtn">Voltar</button><button class="btn primary" type="button" id="nextBtn">Continuar</button></div>
       </form>
     </section>
   </main>
-  <meta name="theme-color" content="#06130b" />
-  <link rel="preload" href="/logo.png" as="image" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="page-shell">
-    <header class="topbar">
-      <a class="brand" href="#inicio" aria-label="Natucopos">
-        <picture>
-          <source srcset="/logo.svg" type="image/svg+xml" />
-          <img src="/logo.png" alt="Natucopos" onerror="this.style.display='none';document.querySelector('.brand-fallback').style.display='inline-flex'" />
-        </picture>
-        <span class="brand-fallback" aria-hidden="true">Natucopos</span>
-      </a>
-      <nav>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#simulador">Simulador</a>
-      </nav>
-      <button class="btn btn-small btn-light" data-start>Começar</button>
-    </header>
 
-    <main id="inicio">
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow">Prévia visual de embalagem personalizada</div>
-          <h1>Simule o visual da sua embalagem personalizada antes de produzir</h1>
-          <p class="lead">Responda algumas perguntas, envie sua logo e receba uma direção visual criada para copos, potes e bowls personalizados.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary" data-start>Criar minha simulação</button>
-            <a class="btn btn-secondary" href="#como-funciona">Ver como funciona</a>
-          </div>
-          <div class="trust-pills">
-            <span>Prévia visual</span><span>Briefing automático</span><span>Açaí, sorvete, café e delivery</span><span>Conferência humana antes da produção</span>
-          </div>
-        </div>
-        <div class="hero-card" aria-label="Exemplo de embalagem personalizada">
-          <div class="mockup-scene">
-            <div class="paper-pot demo-pot">
-              <div class="demo-art">
-                <strong>SUA MARCA</strong>
-                <small>embalagem personalizada</small>
-              </div>
-            </div>
-          </div>
-          <div class="hero-card-footer">
-            <b>Pote 750 ml em destaque</b>
-            <span>base ideal para testar layout, cores e mensagem da marca</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="como-funciona">
-        <div class="section-head">
-          <span class="eyebrow dark">Como funciona</span>
-          <h2>Um briefing comercial pronto para acelerar venda e criação.</h2>
-          <p>A simulação é uma referência inicial. A arte final sempre passa por conferência humana antes da produção.</p>
-        </div>
-        <div class="cards-3">
-          <article><b>1. Envie os dados da sua marca</b><p>Nome, cidade, Instagram, WhatsApp e segmento.</p></article>
-          <article><b>2. Escolha embalagem, estilo e cores</b><p>Pote, copo, bowl ou combo, com tamanho e direção visual.</p></article>
-          <article><b>3. Receba uma prévia e envie para atendimento</b><p>O sistema monta o briefing e o prompt técnico para a próxima etapa.</p></article>
-        </div>
-      </section>
-
-      <section class="simulator-wrap" id="simulador">
-        <div class="simulator-card">
-          <div class="sim-head">
-            <div>
-              <span class="eyebrow dark">Simulador</span>
-              <h2>Crie sua simulação</h2>
-            </div>
-            <button class="btn btn-ghost" id="clearBtn" type="button">Limpar simulação</button>
-          </div>
-
-          <div class="progress-line" aria-hidden="true"><span id="progressBar"></span></div>
-          <div class="step-meta"><span id="stepLabel">Etapa 1 de 6</span><span id="saveState">Salvamento local ativo</span></div>
-          <div class="alert" id="alertBox" role="alert"></div>
-
-          <form id="simulationForm" novalidate>
-            <section class="step active" data-step="0">
-              <h3>Dados do cliente</h3>
-              <p>Esses dados ajudam a equipe a continuar o atendimento corretamente.</p>
-              <div class="grid-2">
-                <label>Nome *<input name="customer_name" autocomplete="name" placeholder="Seu nome" required /></label>
-                <label>WhatsApp *<input name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required /></label>
-                <label>Empresa / marca *<input name="company_name" placeholder="Nome da sua marca" required /></label>
-                <label>Cidade / Estado<input name="city_state" placeholder="Ex: Rio Verde - GO" /></label>
-                <label class="full">Instagram<input name="instagram" placeholder="@suaempresa" /></label>
-              </div>
-            </section>
-
-            <section class="step" data-step="1">
-              <h3>Segmento</h3>
-              <p>Escolha o tipo de negócio e descreva o produto que irá dentro da embalagem.</p>
-              <div class="choice-grid" data-name="segment">
-                <button type="button" data-value="Açaíteria">Açaíteria</button>
-                <button type="button" data-value="Sorveteria">Sorveteria</button>
-                <button type="button" data-value="Gelateria">Gelateria</button>
-                <button type="button" data-value="Cafeteria">Cafeteria</button>
-                <button type="button" data-value="Doceria">Doceria</button>
-                <button type="button" data-value="Bolo no pote">Bolo no pote</button>
-                <button type="button" data-value="Restaurante / delivery">Restaurante / delivery</button>
-                <button type="button" data-value="Outro">Outro</button>
-              </div>
-              <input type="hidden" name="segment" />
-              <label>O que vai dentro da embalagem?<textarea name="product_description" placeholder="Ex: açaí de 750ml, sorvete de 500ml, café gelado, sobremesa no pote..."></textarea></label>
-            </section>
-
-            <section class="step" data-step="2">
-              <h3>Embalagem</h3>
-              <p>O pote 750 ml fica destacado nesta primeira versão para testar bem o fluxo.</p>
-              <div class="choice-grid" data-name="package_type">
-                <button type="button" data-value="Pote de papel">Pote de papel</button>
-                <button type="button" data-value="Copo de papel">Copo de papel</button>
-                <button type="button" data-value="Bowl">Bowl</button>
-                <button type="button" data-value="Combo com mais de uma embalagem">Combo</button>
-              </div>
-              <input type="hidden" name="package_type" />
-              <label>Tamanho<select name="package_size">
-                <option value="750 ml" selected>750 ml — destaque</option>
-                <option>120 ml</option><option>240 ml</option><option>250 ml</option><option>360 ml</option><option>500 ml</option><option>1000 ml</option>
-              </select></label>
-            </section>
-
-            <section class="step" data-step="3">
-              <h3>Estilo visual</h3>
-              <p>Escolha uma direção para guiar a criação.</p>
-              <div class="choice-grid" data-name="visual_style">
-                <button type="button" data-value="Premium tropical">Premium tropical</button>
-                <button type="button" data-value="Moderno e limpo">Moderno e limpo</button>
-                <button type="button" data-value="Divertido e colorido">Divertido e colorido</button>
-                <button type="button" data-value="Minimalista">Minimalista</button>
-                <button type="button" data-value="Luxo">Luxo</button>
-                <button type="button" data-value="Natural/sustentável">Natural/sustentável</button>
-                <button type="button" data-value="Fitness">Fitness</button>
-                <button type="button" data-value="Infantil/divertido">Infantil/divertido</button>
-              </div>
-              <input type="hidden" name="visual_style" />
-              <div class="grid-3">
-                <label>Cor principal<input name="primary_color" placeholder="Ex: roxo escuro" /></label>
-                <label>Cor secundária<input name="secondary_color" placeholder="Ex: verde" /></label>
-                <label>Cor de apoio<input name="support_color" placeholder="Ex: branco" /></label>
-              </div>
-              <label>Referências ou observações<textarea name="observations" placeholder="Ex: visual tropical, folhas discretas, logo grande, fundo escuro..."></textarea></label>
-            </section>
-
-            <section class="step" data-step="4">
-              <h3>Logo e textos</h3>
-              <p>A logo pode ser enviada agora ou adicionada depois pelo atendimento.</p>
-              <label>Upload da logo<input name="logo_file" type="file" accept=".png,.jpg,.jpeg,.svg,.pdf" /></label>
-              <label class="check"><input name="has_no_logo" type="checkbox" /> Ainda não tenho logo</label>
-              <div class="grid-2">
-                <label>Frase principal<input name="main_phrase" placeholder="Ex: O açaí mais cremoso da cidade" /></label>
-                <label>Frase secundária<input name="secondary_phrase" placeholder="Ex: feito com carinho" /></label>
-                <label>Instagram na embalagem<input name="package_instagram" placeholder="@suaempresa" /></label>
-                <label>WhatsApp ou telefone<input name="package_phone" placeholder="(00) 00000-0000" /></label>
-              </div>
-              <div class="grid-2">
-                <label>Deseja QR Code?<select name="wants_qr_code"><option>Não</option><option>Sim</option></select></label>
-                <label>Link do QR Code<input name="qr_code_url" placeholder="https://..." /></label>
-              </div>
-            </section>
-
-            <section class="step result-step" data-step="5">
-              <h3>Resultado do briefing</h3>
-              <p>Confira os dados e envie para o atendimento Natucopos.</p>
-              <div class="result-grid">
-                <div class="summary-card" id="summaryCard"></div>
-                <div class="preview-card">
-                  <div class="preview-stage">
-                    <img class="mockup-img" src="/mockups/pote-750ml-branco.png" alt="Mockup pote 750ml" onerror="this.remove();document.querySelector('.preview-pot').style.display='block'" />
-                    <div class="paper-pot preview-pot"><div id="previewLabel">SUA MARCA</div></div>
-                  </div>
-                  <button class="btn btn-secondary" type="button" disabled>Gerar prévia com IA — em breve</button>
-                  <small>Prévia demonstrativa. A aplicação real será feita na próxima etapa.</small>
-                </div>
-              </div>
-              <label>Prompt técnico para IA<textarea id="generatedPrompt" readonly></textarea></label>
-              <div class="final-actions">
-                <button class="btn btn-secondary" type="button" id="copyPromptBtn">Copiar prompt</button>
-                <button class="btn btn-primary" type="button" id="whatsappBtn">Enviar briefing pelo WhatsApp</button>
-              </div>
-            </section>
-
-            <div class="wizard-actions">
-              <button class="btn btn-secondary" type="button" id="prevBtn">Voltar</button>
-              <button class="btn btn-primary" type="button" id="nextBtn">Continuar</button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-  </div>
+  <footer class="site-footer"><div class="footer-inner"><a class="footer-brand" href="#topo">Natucopos</a><nav aria-label="Rodapé"><a href="#como-funciona">Como funciona</a><a href="#simulador">Simulador</a></nav><p>Simulador visual de embalagens personalizadas com atendimento humano.</p></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
